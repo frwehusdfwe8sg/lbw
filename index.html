@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>李博炜DAVID.Lee | 足球爱好者</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF9F1C;
+            --primary-dark: #E68900;
+            --primary-light: #FFB74D;
+            --secondary: #2D3047;
+            --accent: #1A936F;
+            --light: #F8F9FA;
+            --gray-light: #E9ECEF;
+            --gray: #6C757D;
+            --dark: #212529;
+            --white: #FFFFFF;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.12);
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 15px auto 0;
+        }
+        
+        /* 头部样式 */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .logo i {
+            margin-right: 8px;
+            font-size: 1.6rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 40px;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            cursor: pointer;
+        }
+        
+        /* 英雄区域 */
+        .hero {
+            padding-top: 180px;
+            padding-bottom: 120px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            border-radius: 0 0 0 100px;
+            z-index: -1;
+        }
+        
+        .hero-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-content {
+            flex: 1;
+            padding-right: 50px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .hero-content h1 span {
+            color: var(--primary);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(255, 159, 28, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 159, 28, 0.4);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        /* 关于我区域 */
+        .about {
+            background-color: var(--white);
+        }
+        
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            transition: var(--transition);
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-content {
+            flex: 1;
+        }
+        
+        .about-content h3 {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .about-content p {
+            margin-bottom: 25px;
+            color: var(--gray);
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .skill-tag {
+            padding: 8px 20px;
+            background-color: rgba(255, 159, 28, 0.1);
+            color: var(--primary-dark);
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 159, 28, 0.2);
+        }
+        
+        /* 服务区域 */
+        .services {
+            background-color: var(--light);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(255, 159, 28, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        /* 联系区域 */
+        .contact {
+            background-color: var(--white);
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 60px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-card {
+            background-color: var(--light);
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+        
+        .contact-card h3 {
+            color: var(--secondary);
+            margin-bottom: 25px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 159, 28, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .contact-details h4 {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid var(--gray-light);
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 159, 28, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* ========== 天气工具样式 ========== */
+        .weather-section {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdef5 100%);
+            padding: 80px 0;
+        }
+        
+        .weather-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 30px;
+            padding: 35px 30px;
+            box-shadow: var(--shadow-hover);
+            text-align: center;
+        }
+        
+        .weather-header h2 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+        
+        .weather-header p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+        
+        .weather-search {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+        
+        .weather-input {
+            flex: 1;
+            padding: 14px 18px;
+            border: 1px solid var(--gray-light);
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+        }
+        
+        .weather-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 159, 28, 0.2);
+        }
+        
+        .weather-btn {
+            padding: 14px 28px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .weather-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        /* 天气卡片 */
+        .weather-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 25px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .weather-city {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .weather-main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .weather-icon {
+            font-size: 4.5rem;
+        }
+        
+        .weather-temp {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .weather-desc {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 20px;
+            text-transform: capitalize;
+        }
+        
+        .weather-details {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-light);
+        }
+        
+        .weather-detail-item {
+            text-align: center;
+        }
+        
+        .weather-detail-item i {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .weather-detail-item span {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .weather-detail-item strong {
+            font-size: 1.1rem;
+            color: var(--secondary);
+        }
+        
+        /* 加载状态 */
+        .weather-loading {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            border: 4px solid var(--gray-light);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-bottom: 15px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* 错误提示 */
+        .weather-error {
+            background: #ffe0e0;
+            color: #c44;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 70px 0 30px;
+        }
+        
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .footer-logo span {
+            color: var(--primary);
+        }
+        
+        .footer-about p {
+            max-width: 350px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-links h4 {
+            margin-bottom: 20px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .hero-container,
+            .about-container,
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 60px;
+                text-align: center;
+            }
+            
+            .hero-bg {
+                width: 100%;
+                height: 50%;
+                border-radius: 0 0 100px 100px;
+            }
+            
+            .hero {
+                padding-top: 150px;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 0;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+            }
+            
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .weather-details {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 80px 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .weather-search {
+                flex-direction: column;
+            }
+            
+            .weather-btn {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 15px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-futbol"></i>李<span>博炜</span>
+            </a>
+            
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="active">首页</a></li>
+                <li><a href="#about">关于</a></li>
+                <li><a href="#services">技术</a></li>
+                <li><a href="#weather">天气</a></li>
+                <li><a href="#contact">联系</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>李博炜<br><span>DAVID.Lee</span></h1>
+                <p>一名热爱足球的瑞中学生，技术全面，思维敏捷，在绿茵场上追逐梦想。</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn">我的技术</a>
+                    <a href="#contact" class="btn btn-outline">联系我</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&auto=format&fit=crop&w=1031&q=80" alt="李博炜 - 足球爱好者">
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我区域 -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>关于我</h2>
+                <p>深入了解我</p>
+            </div>  
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="https://ts4.tc.mm.bing.net/th/id/OIP-C.XGyY84LyCjKxb74awa0xSwHaEo?rs=1&pid=ImgDetMain&o=7&rm=3" alt="李博炜个人照片">
+                </div>
+                <div class="about-content">
+                    <h3>足球技术高超，思维敏捷</h3>
+                    <p>作为一名足球爱好者，我始终认为优秀的球员应该不止有远见，还有技术，在过去的几年里积累了丰富的实战经验。</p>
+                    <p>我的擅长位置包括前锋和中场，能够在比赛中灵活应变，为球队创造机会。</p>
+                    <p>除了技术能力，我注重沟通和团队协作，能够有效理解队友需求并将其转化为可行的方案。</p>
+                    
+                    <div class="skills-list">
+                        <span class="skill-tag">短传（脚内侧为主）</span>
+                        <span class="skill-tag">长传（脚背内侧/外侧）</span>
+                        <span class="skill-tag">直塞球</span>
+                        <span class="skill-tag">传中球</span>
+                        <span class="skill-tag">推射</span>
+                        <span class="skill-tag">抽射</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术区域 -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>我的技术</h2>
+                <p>对各种脚法的掌握与精度高、速度和结合实战的应用能力强</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <h3>传球脚法</h3>
+                    <p>短传（脚内侧为主）、长传（脚背内侧/外侧）、直塞球、传中球（低平球、高球、弧线球）。</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>射门脚法</h3>
+                    <p>推射、抽射、捅射、搓射、凌空、头球等，门前嗅觉敏锐。</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3>盘带脚法</h3>
+                    <p>正脚背趟球、脚内侧/外侧拨球、拉球、踩单车、马赛回旋等控球技术。</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-peace"></i>
+                    </div>
+                    <h3>停球脚法</h3>
+                    <p>脚内侧停球、脚底停球、脚背停球、大腿停球、胸部停球，完美缓冲来球力量。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 天气工具区域 ========== -->
+    <section class="weather-section" id="weather">
+        <div class="container">
+            <div class="weather-container">
+                <div class="weather-header">
+                    <h2><i class="fas fa-cloud-sun"></i> 天气助手</h2>
+                    <p>实时天气查询，为你的足球训练提供参考</p>
+                </div>
+                
+                <div class="weather-search">
+                    <input type="text" id="cityInput" class="weather-input" placeholder="输入城市名称，如：温州、杭州、北京..." value="温州">
+                    <button id="searchBtn" class="weather-btn"><i class="fas fa-search"></i> 查询</button>
+                </div>
+                
+                <div id="weatherContent">
+                    <!-- 天气卡片会动态显示在这里 -->
+                    <div class="weather-loading" id="weatherLoading">
+                        <div class="loading-spinner"></div>
+                        <p>🌤️ 加载天气中...</p>
+                    </div>
+                    <div id="weatherCard" style="display: none;"></div>
+                    <div id="weatherError" style="display: none;" class="weather-error"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系区域 -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>联系我</h2>
+                <p>如果您有球赛邀请或任何问题，请随时与我联系</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3>联系信息</h3>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>地址</h4>
+                                <p>中国 · 温州</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>邮箱</h4>
+                                <p>libowei@example.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>电话</h4>
+                                <p>+86 123 4567 890</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-weixin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-weibo"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="您的姓名" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="您的邮箱" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="主题" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="您的消息" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">发送消息</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">李<span>博炜</span></a>
+                    <p>热爱足球的瑞中学生，用技术和激情在绿茵场上书写青春。</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#about">关于</a></li>
+                        <li><a href="#services">技术</a></li>
+                        <li><a href="#weather">天气</a></li>
+                        <li><a href="#contact">联系</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>关注我</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">微博</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 李博炜DAVID.Lee. 保留所有权利. | 足球 | 技术 | 热爱</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ========== 原有交互 ==========
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = mobileToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                
+                document.querySelectorAll('.nav-menu a').forEach(item => item.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+        
+        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('感谢您的留言！我会尽快回复您。');
+            this.reset();
+        });
+        
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '15px 0';
+            } else {
+                header.style.padding = '20px 0';
+            }
+            
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href')?.substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // ========== 天气工具逻辑 ==========
+        // 天气代码映射表 (Open-Meteo weather code)
+        const weatherCodeMap = {
+            0: { desc: "晴", icon: "☀️", faIcon: "fa-sun" },
+            1: { desc: "主要晴", icon: "🌤️", faIcon: "fa-cloud-sun" },
+            2: { desc: "部分多云", icon: "⛅", faIcon: "fa-cloud-sun" },
+            3: { desc: "多云", icon: "☁️", faIcon: "fa-cloud" },
+            45: { desc: "雾", icon: "🌫️", faIcon: "fa-smog" },
+            48: { desc: "雾", icon: "🌫️", faIcon: "fa-smog" },
+            51: { desc: "毛毛雨", icon: "🌧️", faIcon: "fa-cloud-rain" },
+            53: { desc: "毛毛雨", icon: "🌧️", faIcon: "fa-cloud-rain" },
+            55: { desc: "毛毛雨", icon: "🌧️", faIcon: "fa-cloud-rain" },
+            61: { desc: "小雨", icon: "🌦️", faIcon: "fa-cloud-rain" },
+            63: { desc: "中雨", icon: "🌧️", faIcon: "fa-cloud-rain" },
+            65: { desc: "大雨", icon: "🌧️", faIcon: "fa-cloud-showers-heavy" },
+            71: { desc: "小雪", icon: "🌨️", faIcon: "fa-snowflake" },
+            73: { desc: "中雪", icon: "🌨️", faIcon: "fa-snowflake" },
+            75: { desc: "大雪", icon: "❄️", faIcon: "fa-snowflake" },
+            80: { desc: "阵雨", icon: "🌦️", faIcon: "fa-cloud-rain" },
+            81: { desc: "阵雨", icon: "🌦️", faIcon: "fa-cloud-rain" },
+            82: { desc: "强阵雨", icon: "🌧️", faIcon: "fa-cloud-showers-heavy" },
+            95: { desc: "雷暴", icon: "⛈️", faIcon: "fa-bolt" }
+        };
+        
+        // 城市经纬度映射 (手动维护常用城市)
+        const cityCoordinates = {
+            "温州": { lat: 27.999, lon: 120.699 },
+            "杭州": { lat: 30.274, lon: 120.155 },
+            "上海": { lat: 31.230, lon: 121.473 },
+            "北京": { lat: 39.904, lon: 116.407 },
+            "广州": { lat: 23.129, lon: 113.264 },
+            "深圳": { lat: 22.543, lon: 114.058 },
+            "成都": { lat: 30.572, lon: 104.066 },
+            "武汉": { lat: 30.592, lon: 114.305 },
+            "西安": { lat: 34.341, lon: 108.939 },
+            "南京": { lat: 32.060, lon: 118.796 },
+            "苏州": { lat: 31.299, lon: 120.585 },
+            "宁波": { lat: 29.868, lon: 121.544 }
+        };
+        
+        let currentCity = "温州";
+        
+        function getWeatherIcon(weatherCode) {
+            const weather = weatherCodeMap[weatherCode] || weatherCodeMap[0];
+            return weather;
+        }
+        
+        async function fetchWeather(cityName) {
+            const cityInfo = cityCoordinates[cityName];
+            if (!cityInfo) {
+                showError(`未找到城市"${cityName}"，试试：温州、杭州、上海、北京等`);
+                return false;
+            }
+            
+            showLoading();
+            
+            try {
+                const url = `https://api.open-meteo.com/v1/forecast?latitude=${cityInfo.lat}&longitude=${cityInfo.lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&timezone=Asia/Shanghai`;
+                
+                const response = await fetch(url);
+                if (!response.ok) throw new Error("网络请求失败");
+                
+                const data = await response.json();
+                
+                if (!data.current) throw new Error("数据格式错误");
+                
+                const weatherCode = data.current.weather_code;
+                const weatherInfo = getWeatherIcon(weatherCode);
+                
+                const weatherData = {
+                    city: cityName,
+                    temp: Math.round(data.current.temperature_2m),
+                    humidity: data.current.relative_humidity_2m,
+                    windSpeed: data.current.wind_speed_10m,
+                    weatherCode: weatherCode,
+                    weatherDesc: weatherInfo.desc,
+                    weatherIcon: weatherInfo.icon,
+                    weatherFaIcon: weatherInfo.faIcon
+                };
+                
+                displayWeather(weatherData);
+                return true;
+                
+            } catch (error) {
+                console.error("获取天气失败:", error);
+                showError("网络出问题啦！请检查网络后重试");
+                return false;
+            }
+        }
+        
+        function showLoading() {
+            document.getElementById('weatherLoading').style.display = 'block';
+            document.getElementById('weatherCard').style.display = 'none';
+            document.getElementById('weatherError').style.display = 'none';
+        }
+        
+        function showError(message) {
+            document.getElementById('weatherLoading').style.display = 'none';
+            document.getElementById('weatherCard').style.display = 'none';
+            const errorDiv = document.getElementById('weatherError');
+            errorDiv.innerHTML = `<i class="fas fa-exclamation-triangle"></i> ${message}`;
+            errorDiv.style.display = 'block';
+        }
+        
+        function displayWeather(data) {
+            document.getElementById('weatherLoading').style.display = 'none';
+            document.getElementById('weatherError').style.display = 'none';
+            
+            const cardDiv = document.getElementById('weatherCard');
+            cardDiv.innerHTML = `
+                <div class="weather-card">
+                    <div class="weather-city">${data.city}</div>
+                    <div class="weather-main">
+                        <div class="weather-icon">${data.weatherIcon}</div>
+                        <div class="weather-temp">${data.temp}°C</div>
+                    </div>
+                    <div class="weather-desc">${data.weatherDesc}</div>
+                    <div class="weather-details">
+                        <div class="weather-detail-item">
+                            <i class="fas fa-tint"></i>
+                            <span>湿度</span>
+                            <strong>${data.humidity}%</strong>
+                        </div>
+                        <div class="weather-detail-item">
+                            <i class="fas fa-wind"></i>
+                            <span>风速</span>
+                            <strong>${data.windSpeed} km/h</strong>
+                        </div>
+                    </div>
+                </div>
+            `;
+            cardDiv.style.display = 'block';
+        }
+        
+        // 初始化默认显示温州天气
+        fetchWeather("温州");
+        
+        // 搜索按钮事件
+        document.getElementById('searchBtn').addEventListener('click', () => {
+            const cityInput = document.getElementById('cityInput');
+            const cityName = cityInput.value.trim();
+            if (cityName) {
+                currentCity = cityName;
+                fetchWeather(cityName);
+            }
+        });
+        
+        // 回车搜索
+        document.getElementById('cityInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const cityName = e.target.value.trim();
+                if (cityName) {
+                    currentCity = cityName;
+                    fetchWeather(cityName);
+                }
+            }
+        });
+        
+        // 页面加载时动画
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
